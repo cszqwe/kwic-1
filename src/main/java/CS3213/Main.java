@@ -29,6 +29,18 @@ public class Main {
             inputWordToIgnore = sc.nextLine();
         }
 
+        /*
+         * Added part for the new function
+         * Similar as the ignore words.
+         */
+        System.out.println("Enter key words (terminate input by entering empty line) ");
+        String inputKeyWords = sc.nextLine();
+        KeyWords keyWords = KeyWords.getKeyWords();
+        while (!inputKeyWords.isEmpty()) {
+        	keyWords.addWordToIgnore(inputKeyWords);
+        	inputKeyWords = sc.nextLine();
+        }
+        
         Alphabetizer alphabetizer = new Alphabetizer();
         for (String str : inputs) {
             CircularShift shifter = new CircularShift(str);
@@ -36,9 +48,13 @@ public class Main {
         }
 
         String[] result = alphabetizer.getSortedLines();
+        KeyWordsFilter keywordsFilter = new KeyWordsFilter(result, keyWords);
+        keywordsFilter.filter();
+        String[] finalResult = keywordsFilter.getFilteredResults();
+        
         StringBuilder builder = new StringBuilder();
         String separator = System.lineSeparator();
-        for (String str : result) {
+        for (String str : finalResult) {
             builder.append(str).append(separator);
         }
         System.out.print(builder.toString());
