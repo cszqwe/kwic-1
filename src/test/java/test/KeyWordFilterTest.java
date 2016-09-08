@@ -1,7 +1,7 @@
 package test;
 
-//import CS3213.KeyWords;
-//import CS3213.KeyWordsFilter;
+import CS3213.KeyWords;
+import CS3213.KeyWordsFilter;
 
 import org.junit.Test;
 
