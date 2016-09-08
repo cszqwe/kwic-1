@@ -37,7 +37,7 @@ public class Main {
         String inputKeyWords = sc.nextLine();
         KeyWords keyWords = KeyWords.getKeyWords();
         while (!inputKeyWords.isEmpty()) {
-        	keyWords.addWordToIgnore(inputKeyWords);
+        	keyWords.addKeyWord(inputKeyWords);
         	inputKeyWords = sc.nextLine();
         }
         

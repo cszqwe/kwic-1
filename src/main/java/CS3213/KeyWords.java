@@ -17,12 +17,12 @@ public class KeyWords {
         return instance;
     }
 
-    public void addWordToIgnore(String word) {
+    public void addKeyWord(String word) {
         assert(word != null);
         this.keyWords.add(word);
     }
 
-    public void removeWordToIgnore(String word) {
+    public void removeKeyWord(String word) {
         assert(word != null);
         this.keyWords.remove(word);
     }
